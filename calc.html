@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pressure Calculator</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1>Pressure Calculator</h1>
+            <form id="pressure-form">
+                <div class="form-group">
+                    <label for="force">Force (N)</label>
+                    <input type="number" class="form-control" id="force" placeholder="Enter force">
+                </div>
+                <div class="form-group">
+                    <label for="area">Area (m²)</label>
+                    <input type="number" class="form-control" id="area" placeholder="Enter area">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="calculatePressure()">Calculate Pressure</button>
+            </form>
+            <div class="mt-3" id="result"></div>
+        </div>
+    
+        <!-- Add Bootstrap JS and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+        <script>
+            function calculatePressure() {
+                // Get input values
+                const force = parseFloat(document.getElementById('force').value);
+                const area = parseFloat(document.getElementById('area').value);
+    
+                // Check for valid input
+                if (isNaN(force) || isNaN(area)) {
+                    document.getElementById('result').innerHTML = '<div class="alert alert-danger">Please enter valid numeric values.</div>';
+                    return;
+                }
+    
+                // Calculate pressure
+                const pressure = force / area;
+    
+                // Display the result
+                document.getElementById('result').innerHTML = `<div class="alert alert-success">The pressure is ${pressure.toFixed(2)} Pascal (Pa).</div>`;
+            }
+        </script>
+    </body>
+    </html>
+     
+</body>
+</html>
